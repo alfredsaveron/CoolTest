@@ -4,14 +4,6 @@
   var $concord = $('#concord-cards'),
     $card = $concord.find('.card'),
     $cardEx = $card.find('.concord.exit'),
-	 $scrollStatus,
-    $cardOrigin;
-	//calls card Taxiing to setup cards
-  $(document).ready(function() {
-    concordTaxiing($concord);
-  })
-	//card click function
-  $card.click(function(e) {
     if ($(this).hasClass('card')) {
       if (!$(this).hasClass('in-flight')) {
         $(this).concordDeparture();
