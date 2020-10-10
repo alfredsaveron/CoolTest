@@ -1,169 +1,47 @@
-<html>
-<script>
-(function($) {
-  var $concord = $('#concord-cards'),
-    $card = $concord.find('.card'),
-    $cardEx = $card.find('.concord.exit'),
-    if ($(this).hasClass('card')) {
-      if (!$(this).hasClass('in-flight')) {
-        $(this).concordDeparture();
-      } else if ($(e.target).hasClass('concord exit')) {
-        $(e.target).parent().concordArrival();
-      }
-    }
-  });
-	
-	//turns on off video if in viewport
-  $(window).on('resize scroll load', function() {
-    $scrollStatus = !0
-  }), setInterval(function() {
-    $scrollStatus && (concordGetVisuals(), $scrollStatus = !1);
-  }, 350);
-	function concordTaxiing($concord){
-		
-	}
-	//when card zooms in
-	$.fn.concordDeparture = function(){
-		$this = $(this);
-		if ($this.hasClass('in-flight')) return;
-    	var $vpHeight = $(window).height(),
-			 $vpWidth = $(window).width();
-		    $cardOrigin = $this.position();
-    $this.css({
-      'position': 'fixed',
-      'z-index': '98',
-      'top': $cardOrigin.top,
-      'left': $cardOrigin.left,
-    });
-    $this.before('<div class="card gate_reserved"></div>');
-    $('.gate_reserved').css({
-      'width': $this.width,
-      'height': $this.height
-    });
-	$('body').addClass('scroll-off');
-	$this.addClass('in-flight');
-	}
-  $.fn.concordArrival = function() {
-	  $this = $(this);
-		 $this.css({
-			'top': 'auto',
-			'left': 'auto',
-			'position': 'static'
-		 })
-			$('.gate_reserved').remove();
-	  	 $('body').removeClass('scroll-off');
-		 $this.removeClass('in-flight');
-	  }
-	  function concordGetVisuals() {
-		 $($card.find('video')).each(function() {
-			if ($(this).isOnScreen()) {
-			  $(this).get(0).play();
-			} else {
-			  $(this).get(0).pause();
-			}
-		 });
-  }
-  $.fn.isOnScreen = function() {
-    var win = $(window);
-    var viewport = {
-      top: win.scrollTop(),
-      left: win.scrollLeft()
-    };
-    viewport.right = viewport.left + win.width();
-    viewport.bottom = viewport.top + win.height();
+<div class="about-section">
+  <h1>About Us Page</h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
 
-    var bounds = this.offset();
-    bounds.right = bounds.left + this.outerWidth();
-    bounds.bottom = bounds.top + this.outerHeight();
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>jane@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
 
-    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>mike@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
 
-  };
-
-})(jQuery);
-	</script>
-<body class="">
-	<main class="concord" id="concord-cards">
-		<header>
-			<time>
-			<h5 id="date">January 30</h5>
-			<h3 id="day">Today</h3>
-		</time>
-			<a href="https://twitter.com/rtarson" target="_blank"><avatar style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/profile.jpg)"></avatar></a>
-		</header>
-		<!--
-Card = Original Card white bttom
-Card i = Icon/Image with price
-Card x = Card without icon and footer
-Card V = Card with video-->
-		<div class="card xl">
-			<input type="button" class="concord exit" value="×"/>
-			<section class="wrapper">
-				<img style="background-image: url(https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=20d7566d9a01308a05afe81482e5b493)" alt=""></img>
-				<footer class="card-footer">
-					<h6>How To</h6>
-					<h4>Stitch Screenshots the Easy Way</h4>
-					<p>Tap to learn how to save long web paes and chat threads.</p>
-				</footer>
-			</section>
-		<div class="content">
-		</div>
-		</div>
-		<div class="card x" data-color="" style="">
-			<input type="button" class="concord exit" value="×"/>
-			<section class="wrapper">
-				<img style="background-color: #ffcbb6; background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/city-landscape-vector.png)" alt=""></img>
-				<header class="card-title">
-					<h6>Life Hack</h6>
-					<h4>Stitch Screenshots the Easy Way</h4>
-				</header>
-				<footer class="card-footer">
-					<p>Tap to learn how to save long web paes and chat threads.</p>
-				</footer>
-			</section>
-			<div class="content">
-				<p><b>Lorem ipsum dolor sit amet</b> consectetur adipiscing elit. Quisque lacinia, turpis ac congue vehicula, ipsum enim semper neque, nec ultrices mauris dui non neque. Phasellus libero purus, viverra sit amet consectetur at, sagittis vel turpis. Quisque nec nulla quis neque pharetra
-					volutpat. Etiam sodales odio eu eros dictum efficitur. </p>
-				<img alt="" style="background-image:url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=64aea2d5c42b610bb0ed8aede22c2507)"/>
-				<p>In elementum finibus dui, ac rutrum ante consectetur sit amet. Aenean mauris sem, pulvinar vel tempor vel, volutpat sed turpis. Vestibulum arcu est, blandit ac ex et, ultrices consequat est.</p>
-			</div>
-		</div>
-		<header class="cards">
-			<time>
-		<h5 id="date">January 29</h5>
-		<h3 id="day">Monday</h3>
-	</time>
-		</header>
-		<div class="card xl i">
-			<input type="button" class="concord exit" value="×"/>
-			<section class="wrapper">
-				<img style="background-color: #FED8C1; background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/mountain-landscape-vector.png);" alt=""></img>
-				<header class="card-title">
-					<img class="icon" style="background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/565097/leaf-icon.jpg);"></img>
-					<h2>App of the Day</h2>
-				</header>
-				<footer class="card-footer">
-					<h6>Khan Academy</h6>
-					<p>You can learn anything</p>
-					<input type="button" class="concord" value="$4.99"></input>
-				</footer>
-			</section>
-			<div class="content">
-			</div>
-		</div>
-		<div class="card v">
-			<input type="button" class="concord exit" value="×"/>
-			<section class="wrapper">
-				<video loop="true"  src="https://taurozza.com/assets/videos/lasvegas.mp4" alt=""></video>
-				<footer class="card-footer">
-					<h6>How To</h6>
-					<h4>Stitch Screenshots the Easy Way</h4>
-					<p>Tap to learn how to save long web paes and chat threads.</p>
-				</footer>
-			</section>
-		<div class="content">
-		</div>
-		</div>
-	</main>
-</body>
-</html>
+  <div class="column">
+    <div class="card">
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>john@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
