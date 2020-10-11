@@ -2,42 +2,26 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Rudolph</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Toggle Dark Mode</title>
 
-  <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="rudolph">
-
-    <div class="antlers left"></div>
-    <div class="antlers right"></div>
-
-    <div class="ears left">
-      <div class="shadow"></div>
-    </div>
-    <div class="ears right">
-      <div class="shadow"></div>
+    <div class="wrapper">
+        <input type="checkbox" name="" id="switch">
+        <label for="switch" class="switch-label">
+            <div class="toggle"></div>
+        </label>
     </div>
 
-    <div class="face">
-      <div class="eyes left">
-        <div class="pupil"></div>
-      </div>
-      <div class="eyes right">
-        <div class="pupil"></div>
-      </div>
-    </div>
-
-    <div class="chin">
-      <div class="nose">
-        <div class="shine"></div>
-      </div>
-    </div>
-  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 
 </body>
 
